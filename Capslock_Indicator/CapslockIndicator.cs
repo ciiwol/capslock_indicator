@@ -21,8 +21,8 @@ namespace Capslock_Indicator
                 Text = "Capslock Indicator",
             };
 
-            icoOn = new Icon(SystemIcons.Exclamation, 32, 32);
-            icoOff = new Icon(SystemIcons.Shield, 32, 32);
+            icoOn = new Icon(res.iconOn, 16, 16);
+            icoOff = new Icon(res.iconOff, 16, 16);
 
             menu = new ContextMenu();
             menu.MenuItems.Add("김주진(http://www.ciiwolstudio.com)", mnu_homepage);

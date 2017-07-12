@@ -4,6 +4,10 @@ using System.Runtime.InteropServices;
 using System.Text;
 
 namespace Capslock_Indicator {
+
+    //Low-level keyboard hooker
+    //Refer: http://joelabrahamsson.com/detecting-mouse-and-keyboard-input-with-net/
+    //Thanks to Joel Abrahamsson
     class Hooker : IDisposable
     {
         public delegate IntPtr HookDelegate(Int32 Code, IntPtr wParam, IntPtr lParam);
@@ -17,7 +21,6 @@ namespace Capslock_Indicator {
 
         [DllImport("User32.dll")]
         public static extern IntPtr SetWindowsHookEx(Int32 idHook, HookDelegate lpfn, IntPtr hmod, Int32 dwThreadId);
-
 
         public event EventHandler<EventArgs> KeyBoardKeyPressed;
 
@@ -33,8 +36,7 @@ namespace Capslock_Indicator {
             this.capslockIndicator = capslockIndicator;
 
             keyBoardDelegate = KeyboardHookDelegate;
-            keyBoardHandle = SetWindowsHookEx(
-                WH_KEYBOARD_LL, keyBoardDelegate, IntPtr.Zero, 0);
+            keyBoardHandle = SetWindowsHookEx(WH_KEYBOARD_LL, keyBoardDelegate, IntPtr.Zero, 0);
         }
 
         private IntPtr KeyboardHookDelegate(
