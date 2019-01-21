@@ -25,7 +25,7 @@ namespace Capslock_Indicator
             icoOff = new Icon(res.iconOff, 16, 16);
 
             menu = new ContextMenu();
-            menu.MenuItems.Add("김주진(http://www.ciiwolstudio.com)", mnu_homepage);
+            menu.MenuItems.Add("김주진(http://jujinkim.com)", mnu_homepage);
             menu.MenuItems.Add("Exit", mnu_Exit);
 
             notifyIcon.ContextMenu = menu;
@@ -44,7 +44,7 @@ namespace Capslock_Indicator
         //open homepage
         private void mnu_homepage(object sender, EventArgs e)
         {
-           Process.Start("http://www.ciiwolstudio.com");
+           Process.Start("http://jujinkim.com");
         }
 
         //quit application
